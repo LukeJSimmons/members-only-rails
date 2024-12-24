@@ -1,0 +1,15 @@
+<ul>
+    <% @posts.each do |post| %>
+        <li>
+            <%= User.find(post.user_id).name if current_user %>
+            <%= post.body %>
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to "New Post", new_post_path %><br>
+<% if current_user %>
+    <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+<% else %>
+    <%= button_to "Sign In", new_user_session_path, class: "btn" %>
+<% end %>

@@ -1,0 +1,5 @@
+<%= form_with model: @post do |form| %>
+    <%= @post.errors.full_messages %><br>
+    <%= form.text_area :body, placeholder: "what are we thinking?" %><br>
+    <%= form.submit "Submit" %>
+<% end %>
